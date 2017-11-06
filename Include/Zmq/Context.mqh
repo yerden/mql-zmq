@@ -73,7 +73,7 @@ protected:
 public:
 
    static intptr_t   create() {return zmq_ctx_new();}
-   static void       destroy(intptr_t handle) {if(0!=zmq_ctx_term(handle)) {Debug("failed to terminate context");}}
+   static void       destroy() {if(0!=zmq_ctx_term(m_ref)) {Debug("failed to terminate context");}}
 
                      Context(string shared=NULL):GlobalHandle<intptr_t,Context>(shared) {}
 
